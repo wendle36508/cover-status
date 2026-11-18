@@ -1,31 +1,38 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# Upptime settings for Cover's uptime monitor (repo: wendle36508/cover-status, kept separate from the
+# site repo so its frequent commits never rebuild covergiving.com). Checks every 5 minutes on GitHub
+# Actions (free for public repos). When something goes down, Upptime opens a GitHub Issue assigned to
+# wendle36508, which sends Tanner an email and a GitHub app notification; the issue closes itself
+# when the site is back. Status page: https://wendle36508.github.io/cover-status/
+
+owner: wendle36508
+repo: cover-status
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  - name: Homepage
+    url: https://covergiving.com/
+  - name: Sign-in page
+    url: https://covergiving.com/signin.html
+  - name: Sponsor page
+    url: https://covergiving.com/give.html
+  - name: Sign-in service
+    url: https://qclasffvdviuugczaway.supabase.co/auth/v1/health
+    headers:
+      - "apikey: sb_publishable_R7OCbhFtdS0-xOAnazuvSw_FdNpYq5r"
+  - name: Checkout server
+    url: https://qclasffvdviuugczaway.supabase.co/functions/v1/create-sponsorship
+  - name: Payments webhook
+    url: https://qclasffvdviuugczaway.supabase.co/functions/v1/stripe-webhook
+  - name: Nightly Stripe check
+    url: https://qclasffvdviuugczaway.supabase.co/functions/v1/stripe-sync
+
+assignees:
+  - wendle36508
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  baseUrl: /cover-status
+  name: Cover status
+  introTitle: "Is Cover up?"
+  introMessage: Live checks of covergiving.com, sign-in and checkout, every 5 minutes.
   navbar:
-    - title: Status
-      href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+    - title: covergiving.com
+      href: https://covergiving.com
